@@ -35,6 +35,13 @@ export class ProjectService {
     catchError(this.handleError)
   );
 
+  update$ = (project: Project) => <Observable<CustomResponse>> 
+  this.http.post<CustomResponse>(`${this.url}/update`, project)
+  .pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  );
+
   handleError(handleError: any): Observable<never> {
     return throwError ('Method not implemented.');
   }
