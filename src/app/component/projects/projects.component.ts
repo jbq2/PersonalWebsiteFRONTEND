@@ -3,6 +3,7 @@ import { catchError, map, Observable, of, startWith } from 'rxjs';
 import { DataState } from 'src/app/enum/data-state.enum';
 import { AppState } from 'src/app/interface/app-state';
 import { CustomResponse } from 'src/app/interface/custom-response';
+import { Project } from 'src/app/interface/project';
 import { ProjectService } from 'src/app/service/project.service';
 
 @Component({
@@ -13,10 +14,12 @@ import { ProjectService } from 'src/app/service/project.service';
 export class ProjectsComponent implements OnInit {
 
   appState$: Observable<AppState<CustomResponse>> | undefined;
+  public projects: Project[] | undefined;
   constructor(private projectService: ProjectService) {}
 
   ngOnInit(): void {
     this.appState$ = this.projectService.projects$
+
     .pipe(
       map(response => {
         return { dataState: DataState.LOADED_STATE, appData: response }
@@ -26,6 +29,10 @@ export class ProjectsComponent implements OnInit {
         return of({ dataState: DataState.ERROR_STATE, error })
       })
     );
+
+    this.appState$.subscribe(data => {
+      this.projects = data.appData?.data["projects"];
+    });
   }
 
 }
