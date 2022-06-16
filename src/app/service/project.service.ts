@@ -1,7 +1,6 @@
 import { Project } from './../interface/project';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getServers } from 'dns';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { CustomResponse } from '../interface/custom-response';
 
@@ -11,15 +10,9 @@ import { CustomResponse } from '../interface/custom-response';
 
 export class ProjectService {
 
-  private readonly url: string = 'any'; // http://localhost:8080/projects
+  private readonly url: string = 'http://localhost:8080/projects'; // http://localhost:8080/projects
 
   constructor(private http: HttpClient) {}
-  
-  // getProjects(): Observable<CustomResponse> {
-  //   return this.http.get<CustomResponse>(`${this.url}/list`);
-  // }
-
-  //above is a procedural approach
 
   projects$ = <Observable<CustomResponse>> 
   this.http.get<CustomResponse>(`${this.url}/list`)
@@ -77,8 +70,8 @@ export class ProjectService {
   );
 
 
-  handleError(handleError: any): Observable<never> {
-    return throwError ('Method not implemented.');
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    return throwError (`Error occurred - Error code: ${error.status}`);
   }
 
 }
