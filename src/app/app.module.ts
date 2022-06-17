@@ -12,7 +12,7 @@ import { ProjectsComponent } from './component/projects/projects.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    ProjectsComponent
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,

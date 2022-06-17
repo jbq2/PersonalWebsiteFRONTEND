@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
 
     this.projectService.getProjects().subscribe(response => {
-      this.projects = response.data['projects']
+      this.projects = response.data['projects'];
     });
 
     // this.appState$ = this.projectService.projects$
