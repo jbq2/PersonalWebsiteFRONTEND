@@ -1,16 +1,16 @@
 a{
     display: block;
     font-size: 20px;
-    background-color: black;
-    border-color: black;
+    background-color: #212529;
+    border-color: #212529;
     padding: 25px 100px 25px;
     margin: 0px 0px 50px 0px;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #303030;
-    border-color: #303030; /*set the color you want here*/
+    background-color: black;
+    border-color: black; /*set the color you want here*/
 }
 
 div div{
