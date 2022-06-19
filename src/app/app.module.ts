@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './component/home/home.component';
 import { ProjectsComponent } from './component/projects/projects.component';
 import { NavbarComponent } from './partials/navbar/navbar.component';
+import { ProjectDetailsComponent } from './component/project-details/project-details.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NavbarComponent } from './partials/navbar/navbar.component';
     HomeComponent,
     ProjectsComponent,
     NavbarComponent,
+    ProjectDetailsComponent,
   ],
   imports: [
     BrowserModule,
