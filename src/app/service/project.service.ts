@@ -46,22 +46,6 @@ export class ProjectService {
   }
 
 
-  // projectByName$ = (name: string) => <Observable<CustomResponse>>
-  // this.http.get<CustomResponse>(`${this.url}/getByName/${name}`)
-  // .pipe(
-  //   tap(console.log),
-  //   catchError(this.handleError)
-  // );
-
-  public getProjectByName(name: string): Observable<CustomResponse> {
-    return this.http.get<CustomResponse>(`${this.url}/getByName/${name}`)
-    .pipe(
-      tap(console.log),
-      catchError(this.handleError)
-    );
-  }
-
-
   // save$ = (project: Project) => <Observable<CustomResponse>> 
   // this.http.post<CustomResponse>(`${this.url}/save`, project)
   // .pipe(
@@ -103,22 +87,6 @@ export class ProjectService {
 
   public delete(id: number): Observable<CustomResponse> {
     return this.http.delete<CustomResponse>(`${this.url}/delete/${id}`)
-    .pipe(
-      tap(console.log),
-      catchError(this.handleError)
-    );
-  }
-
-
-  // deleteByName$ = (name: string) => <Observable<CustomResponse>>
-  // this.http.delete<CustomResponse>(`${this.url}/deleteByName/${name}`)
-  // .pipe(
-  //   tap(console.log),
-  //   catchError(this.handleError)
-  // );
-
-  public deleteByName(name: string): Observable<CustomResponse> {
-    return this.http.delete<CustomResponse>(`${this.url}/deleteByName/${name}`)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
