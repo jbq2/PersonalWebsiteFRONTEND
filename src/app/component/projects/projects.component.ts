@@ -5,7 +5,6 @@ import { AppState } from 'src/app/interface/app-state';
 import { CustomResponse } from 'src/app/interface/custom-response';
 import { Project } from 'src/app/interface/project';
 import { ProjectService } from 'src/app/service/project.service';
-import 'bootstrap';
 
 @Component({
   selector: 'app-projects',
