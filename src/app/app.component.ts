@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from './interface/app-state';
 import { CustomResponse } from './interface/custom-response';
 import { DataState } from './enum/data-state.enum';
+import 'bootstrap';
 
 @Component({
   selector: 'app-root',
