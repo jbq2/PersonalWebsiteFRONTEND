@@ -14,7 +14,7 @@
       <tbody>
         <tr *ngFor="let p of projects">
           <td>{{ p.id }}</td>
-          <td><strong>{{ p.name }}</strong></td>
+          <td><a routerLink="/project/{{ p.id }}"><strong>{{ p.name }}</strong></a></td>
           <td *ngIf="p.enddate != null; else noEndDate">{{ p.startdate }} to {{ p.enddate }}</td>
           <ng-template #noEndDate>
               <td><i>Incomplete</i></td>
