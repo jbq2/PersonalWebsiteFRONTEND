@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { map, Observable, startWith, catchError, of } from 'rxjs';
 import { ProjectService } from './service/project.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,5 +14,6 @@ import 'bootstrap';
 })
 export class AppComponent{
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService, private route: ActivatedRoute) {
+  }
 }
