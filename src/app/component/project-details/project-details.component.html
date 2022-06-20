@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="d-flex flex-column">
+    <h1 class="text-center display-4">{{ project.name }}</h1>
+
+    <div class="text-center w-50">
+        <h2>Description</h2>
+        <p>{{ project.description }}</p>
+    </div>
+
+    <div class="text-center w-50">
+        <h2>Course</h2>
+        <p *ngIf="project.course != null; else noCourse">{{ project.course }}</p>
+        <ng-template #noCourse>
+            <p><i>There is no course affiliated with this project.</i></p>
+        </ng-template>
+    </div>
+
+    <div class="text-center w-50">
+        <h2>Start and End</h2>
+        <p *ngIf="project.enddate != null; else noEndDate">{{ project.startdate }} to {{ project.enddate }}</p>
+        <!-- TODO make a helper class to reformat start and end dates -->
+          <ng-template #noEndDate>
+            <p>
+                Started on {{ project.startdate }}
+                <br>
+                <i>This project is still under development.</i>
+            </p>
+          </ng-template>
+    </div>
+
+    <div class="text-center w-50">
+        <h2>Links</h2>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary" href="{{ project.url }}" role="button">GitHub Repo</a>
+            <a class="btn btn-primary" href="#" role="button">Served Project</a>
+        </div>
+    </div>
+
+</div>

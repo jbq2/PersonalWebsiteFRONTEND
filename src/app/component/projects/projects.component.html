@@ -2,28 +2,43 @@
 
 <h1 class="text-center display-3">My Projects</h1>
 <div id="projectsListDiv" class="d-flex justify-content-center">
-    <table class="table table-hover table-bordered">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Start to End (YYYY-MM-DD)</th>
-            <th scope="col">URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let p of projects">
-            <td>{{ p.id }}</td>
-            <td>{{ p.name }}</td>
-            <td *ngIf="p.enddate != null; else noEndDate">{{ p.startdate }} to {{ p.enddate }}</td>
-            <ng-template #noEndDate>
-                <td><i>Incomplete</i></td>
-            </ng-template>
-            <td *ngIf="p.url != null; else nourl"><a href="{{ p.url }}">{{ p.url }}</a></td>
-            <ng-template #nourl>
-                <td><i>No URL</i></td>
-            </ng-template>
-          </tr>
-        </tbody>
-      </table>
+  <table class="table table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Start to End (YYYY-MM-DD)</th>
+          <th scope="col">URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of projects">
+          <td>{{ p.id }}</td>
+          <td><a (click)="onClickProject(p.id)"><strong>{{ p.name }}</strong></a></td>
+          <td *ngIf="p.enddate != null; else noEndDate">{{ p.startdate }} to {{ p.enddate }}</td>
+          <ng-template #noEndDate>
+              <td><i>Incomplete</i></td>
+          </ng-template>
+          <td *ngIf="p.url != null; else nourl"><a href="{{ p.url }}">{{ p.url }}</a></td>
+          <ng-template #nourl>
+              <td><i>No URL</i></td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <div class="accordion" id="accordionExample">
+      <div *ngFor="let project of projects" class="accordion-item">
+        <h2 class="accordion-header" id="{{ project.id }}">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            {{ project.name }}
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div> -->
 </div>

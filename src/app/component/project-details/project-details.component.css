@@ -1,0 +1,30 @@
+h1{
+    margin: 25px 0px 45px 0px;
+    width:40%;
+}
+
+div{
+    margin: auto;
+    margin-bottom:20px;
+    align-items:center;
+    justify-content: center;
+    text-size-adjust:auto;
+}
+
+div p{
+    margin-right:auto;
+    margin-left:auto;
+    font-size:20px;
+} 
+
+a{
+    margin: 0px 10px 0px 10px;
+    background-color: #212529;
+    border-color: #212529;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: black;
+    border-color: black; /*set the color you want here*/
+}
