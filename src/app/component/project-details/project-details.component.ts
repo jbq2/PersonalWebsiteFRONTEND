@@ -10,15 +10,20 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  id!: string | number;
+  id!: number;
   project!: Project;
   constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params: Params) => {
-      console.log(params['id']);
-    })
 
+    this.route.queryParams.subscribe((params: Params) => {
+      this.id = params['id'];
+      console.log(params['id']);
+    });
+
+    this.projectService.getProject(this.id).subscribe(response => {
+      this.project = response.data['project'];
+    });
   }
 
 }

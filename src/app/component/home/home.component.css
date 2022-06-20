@@ -5,6 +5,11 @@ a{
     border-color: #212529;
     padding: 25px 100px 25px;
     margin: 0px 0px 50px 0px;
+    white-space: nowrap;
+}
+
+#homeHeader{
+    height:76px;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
