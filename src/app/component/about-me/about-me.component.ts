@@ -11,7 +11,10 @@ export class AboutMeComponent{
   currently:string;
   interests: string;
   goals: string;
+  lastupdated: string;
   constructor() { 
+    this.lastupdated = 'June 21, 2022';
+    
     this.background = `Hello, my name is Joshua Quizon and welcome to the 'About Me' page of my personal
     blog/website/portfolio.  I am Filipino, born and raised, but moved to the United 
     States when I was around 6 or 7 years old.  I graduated from Parsippany High 
