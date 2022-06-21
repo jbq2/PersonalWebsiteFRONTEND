@@ -11,12 +11,6 @@ div{
     text-size-adjust:auto;
 }
 
-div p{
-    margin-right:auto;
-    margin-left:auto;
-    font-size:20px;
-} 
-
 a{
     margin: 0px 10px 0px 10px;
     background-color: #212529;
