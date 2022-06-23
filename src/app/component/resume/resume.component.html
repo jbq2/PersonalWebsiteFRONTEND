@@ -35,36 +35,55 @@
 
 <h1 class="text-center">Work Experience</h1>
 <div class="container work-experience d-flex flex-column">
-<!-- TODO add work experience here -->
-<!-- TODO full cards -->
+  <div *ngFor="let key of experiences.keys()" class="card" id="full-card">
+      <div class="card-body" style="padding-left:15%">
+        <h4 class="card-title">{{ key }}</h4>
+        <h5 class="card-subtitle mb-2 text-muted">{{ experiences.get(key)[0] }}</h5>
+        <ul>
+          <li *ngFor="let bullet of experiences.get(key) | slice:1; let i = index">{{ bullet }}</li>
+        </ul>
+      </div>
+  </div>
 </div>
 
 
 <h1 class="text-center">Projects</h1>
 <div class="container projects d-flex flex-column">
 
-    <div *ngFor="let p of projects" class="card" id="full-card">
-        <div class="card-body">
-          <h4 class="card-title">{{ p.name }}</h4>
-          <h5 class="card-subtitle mb-2 text-muted">Project</h5>
-          <p>{{ p.description }}...</p>
-          <a (click)="onClickProject(p.id)" class="card-link">Full Description</a>
-          <a *ngIf="p.url != null" href="{{ p.url }}" class="card-link">GitHub Link</a>
-        </div>
+  <div *ngFor="let p of projects" class="card" id="full-card">
+    <div class="card-body">
+      <h4 class="card-title">{{ p.name }}</h4>
+      <h5 class="card-subtitle mb-2 text-muted">Project</h5>
+      <p>{{ p.description }}...</p>
+      <a (click)="onClickProject(p.id)" class="card-link">Full Description</a>
+      <a *ngIf="p.url != null" href="{{ p.url }}" class="card-link">GitHub Link</a>
     </div>
+  </div>
 
 </div>
 
 
 <h1 class="text-center">Achievements and Awards</h1>
 <div class="container basic-information d-flex justify-content-center">
-<!-- TODO add achievements and awards here -->
-<!-- TODO half cards -->
+  <div *ngFor="let key of achievements.keys()" class="card" id="half-card">
+    <div class="card-body">
+      <h3 class="card-title">{{ key }}</h3>
+      <h5 class="card-subtitle mb-2 text-muted">{{ achievements.get(key)[0] }}</h5>
+      <p>{{ achievements.get(key)[1] }}</p>
+    </div>
+  </div>
 </div>
 
 
 <h1 class="text-center">Relevant Coursework</h1>
 <div class="container work-experience d-flex flex-column">
-<!-- TODO add work experience here -->
-<!-- TODO full card -->
+  <div class="card" id="full-card">
+    <div class="card-body" style="padding-left:15%">
+      <h4 class="card-title">Coursework</h4>
+      <h5 class="card-subtitle mb-2 text-muted">New Jersey Institute of Technology</h5>
+      <ul>
+        <li *ngFor="let bullet of coursework">{{ bullet }}</li>
+      </ul>
+    </div>
+  </div>
 </div>
