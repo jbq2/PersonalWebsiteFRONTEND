@@ -1,0 +1,89 @@
+<app-navbar></app-navbar>
+
+<h1 class="text-center display-3">Resumé</h1>
+
+<h1 class="text-center">Basic Information</h1>
+<div class="container basic-information d-flex justify-content-center">
+
+    <div class="card" id="half-card">
+        <div class="card-body">
+          <h3 class="card-title">Personal</h3>
+          <h5 class="card-subtitle mb-2 text-muted">Basic Information</h5>
+          <ul>
+            <li>Joshua Quizon</li>
+            <li>44 Mt Pleasant Tpke, Denville, NJ</li>
+            <li>jbq2@njit.edu</li>
+          </ul>
+        </div>
+    </div>
+    
+    <div class="card" id="half-card">
+        <div class="card-body">
+          <h3 class="card-title">Education</h3>
+          <h5 class="card-subtitle mb-2 text-muted">Basic Information</h5>
+          <ul>
+            <li>New Jersey Institute of Technology</li>
+            <li>Newark, NJ</li>
+            <li>Ying Wu College of Computing</li>
+            <li>3rd Year Student | GPA: 3.96</li>
+          </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<h1 class="text-center">Work Experience</h1>
+<div class="container work-experience d-flex flex-column">
+  <div *ngFor="let key of experiences.keys()" class="card" id="full-card">
+      <div class="card-body" style="padding-left:15%">
+        <h4 class="card-title">{{ key }}</h4>
+        <h5 class="card-subtitle mb-2 text-muted">{{ experiences.get(key)[0] }}</h5>
+        <ul>
+          <li *ngFor="let bullet of experiences.get(key) | slice:1; let i = index">{{ bullet }}</li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+
+<h1 class="text-center">Projects</h1>
+<div class="container projects d-flex flex-column">
+
+  <div *ngFor="let p of projects" class="card" id="full-card">
+    <div class="card-body">
+      <h4 class="card-title">{{ p.name }}</h4>
+      <h5 class="card-subtitle mb-2 text-muted">Project</h5>
+      <p>{{ p.description }}...</p>
+      <a (click)="onClickProject(p.id)" class="card-link">Full Description</a>
+      <a *ngIf="p.url != null" href="{{ p.url }}" class="card-link">GitHub Link</a>
+    </div>
+  </div>
+
+</div>
+
+
+<h1 class="text-center">Achievements and Awards</h1>
+<div class="container basic-information d-flex justify-content-center">
+  <div *ngFor="let key of achievements.keys()" class="card" id="half-card">
+    <div class="card-body">
+      <h3 class="card-title">{{ key }}</h3>
+      <h5 class="card-subtitle mb-2 text-muted">{{ achievements.get(key)[0] }}</h5>
+      <p>{{ achievements.get(key)[1] }}</p>
+    </div>
+  </div>
+</div>
+
+
+<h1 class="text-center">Relevant Coursework</h1>
+<div class="container work-experience d-flex flex-column">
+  <div class="card" id="full-card">
+    <div class="card-body" style="padding-left:15%">
+      <h4 class="card-title">Coursework</h4>
+      <h5 class="card-subtitle mb-2 text-muted">New Jersey Institute of Technology</h5>
+      <ul>
+        <li *ngFor="let bullet of coursework">{{ bullet }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
