@@ -11,6 +11,7 @@ import { NavbarComponent } from './partials/navbar/navbar.component';
 import { ProjectDetailsComponent } from './component/project-details/project-details.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { AboutMeComponent } from './component/about-me/about-me.component';
+import { ResumeComponent } from './component/resume/resume.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AboutMeComponent } from './component/about-me/about-me.component';
     ProjectDetailsComponent,
     FooterComponent,
     AboutMeComponent,
+    ResumeComponent,
   ],
   imports: [
     BrowserModule,
