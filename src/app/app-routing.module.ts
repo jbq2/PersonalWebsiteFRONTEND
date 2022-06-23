@@ -1,3 +1,4 @@
+import { AboutMeComponent } from './component/about-me/about-me.component';
 import { ProjectDetailsComponent } from './component/project-details/project-details.component';
 import { ProjectsComponent } from './component/projects/projects.component';
 import { HomeComponent } from './component/home/home.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'project', component: ProjectDetailsComponent },
+  { path: 'aboutme', component: AboutMeComponent },
   { path: '', component: HomeComponent}
 ];
 
