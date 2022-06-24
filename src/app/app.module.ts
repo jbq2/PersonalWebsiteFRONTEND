@@ -12,6 +12,7 @@ import { ProjectDetailsComponent } from './component/project-details/project-det
 import { FooterComponent } from './partials/footer/footer.component';
 import { AboutMeComponent } from './component/about-me/about-me.component';
 import { ResumeComponent } from './component/resume/resume.component';
+import { ProjectsTableComponent } from './component/projects/projects-table/projects-table.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ResumeComponent } from './component/resume/resume.component';
     FooterComponent,
     AboutMeComponent,
     ResumeComponent,
+    ProjectsTableComponent,
   ],
   imports: [
     BrowserModule,

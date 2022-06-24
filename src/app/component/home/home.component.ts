@@ -15,8 +15,6 @@ export class HomeComponent {
 
     this.date = new Date();
 
-    let m = new Months;
-
     this.dateStr = `${this.date.getDate()} ${Helper.monthMap.get(this.date.getMonth())}, ${this.date.getFullYear()}`;
   }
 

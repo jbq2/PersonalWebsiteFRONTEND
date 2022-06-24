@@ -1,22 +1,16 @@
-import { Helper } from './../../lib/helpers';
-import { Months } from './../../months';
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, map, Observable, of, startWith, Subscription } from 'rxjs';
-import { DataState } from 'src/app/enum/data-state.enum';
-import { AppState } from 'src/app/interface/app-state';
-import { CustomResponse } from 'src/app/interface/custom-response';
+import { ProjectService } from './../../../service/project.service';
+import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/interface/project';
-import { ProjectService } from 'src/app/service/project.service';
+import { Helper } from 'src/app/lib/helpers';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  selector: 'app-projects-table',
+  templateUrl: './projects-table.component.html',
+  styleUrls: ['./projects-table.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsTableComponent implements OnInit {
 
-  appState$: Observable<AppState<CustomResponse>> | undefined;
   projects: Project[];
   constructor(private projectService: ProjectService, private router: Router) {
     this.projects = [];
@@ -47,5 +41,4 @@ export class ProjectsComponent implements OnInit {
       queryParams: { 'id': id }
     });
   }
-
 }
