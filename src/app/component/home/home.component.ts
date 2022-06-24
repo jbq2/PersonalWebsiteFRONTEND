@@ -1,3 +1,4 @@
+import { Helper } from './../../lib/helpers';
 import { Months } from './../../months';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,7 +17,7 @@ export class HomeComponent {
 
     let m = new Months;
 
-    this.dateStr = `${this.date.getDate()} ${m.monthMap.get(this.date.getMonth())}, ${this.date.getFullYear()}`;
+    this.dateStr = `${this.date.getDate()} ${Helper.monthMap.get(this.date.getMonth())}, ${this.date.getFullYear()}`;
   }
 
 }
