@@ -29,11 +29,11 @@
           </ng-template>
     </div>
 
-    <div class="text-center w-50">
+    <div *ngIf="project.url != null || project.servedurl != null" class="text-center w-50">
         <h2>Links</h2>
         <div class="d-flex justify-content-center">
-            <a class="btn btn-primary" href="{{ project.url }}" role="button">GitHub Repo</a>
-            <a class="btn btn-primary" href="#" role="button">Served Project</a>
+            <a *ngIf="project.url != null" class="btn btn-primary" href="{{ project.url }}" role="button">GitHub Repo</a>
+            <a *ngIf="project.servedurl != null" class="btn btn-primary" href="{{ project.servedurl }}" role="button">Served Project</a>
         </div>
     </div>
 
