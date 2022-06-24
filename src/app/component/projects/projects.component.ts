@@ -1,3 +1,4 @@
+import { Months } from './../../months';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, Observable, of, startWith, Subscription } from 'rxjs';
@@ -15,14 +16,17 @@ import { ProjectService } from 'src/app/service/project.service';
 export class ProjectsComponent implements OnInit {
 
   appState$: Observable<AppState<CustomResponse>> | undefined;
-  projects: Project[] | undefined;
-  constructor(private projectService: ProjectService, private router: Router) {}
+  projects: Project[];
+  constructor(private projectService: ProjectService, private router: Router) {
+    this.projects = [];
+  }
 
   ngOnInit(): void {
 
     this.projectService.getProjects().subscribe(response => {
       this.projects = response.data['projects'];
     });
+
   }
 
   onClickProject(id: number){
