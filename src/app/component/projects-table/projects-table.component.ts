@@ -12,6 +12,7 @@ import { Helper } from 'src/app/lib/helpers';
 export class ProjectsTableComponent implements OnInit {
 
   projects: Project[];
+
   constructor(private projectService: ProjectService, private router: Router) {
     this.projects = [];
   }

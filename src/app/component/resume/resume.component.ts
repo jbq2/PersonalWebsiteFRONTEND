@@ -1,20 +1,23 @@
+import { Course } from './../../interface/course';
+import { CourseService } from './../../service/course.service';
 import { ProjectService } from './../../service/project.service';
 import { Project } from './../../interface/project';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Helper } from 'src/app/lib/helpers';
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css']
 })
-export class ResumeComponent {
+export class ResumeComponent implements OnInit{
 
   projects: Project[];
   experiences: Map<any, any>;//key: string, value: string[]
   achievements: Map<any, any>;
-  coursework: string[];
-  constructor(private projectService: ProjectService, private router: Router) {
+  coursework: Course[];
+  constructor(private projectService: ProjectService, private courseService: CourseService, private router: Router) {
 
     this.projects = [];
     
@@ -51,17 +54,29 @@ export class ResumeComponent {
       ]]
     ]);
 
-    this.coursework = [
-      'CS 331 H | Database Design and Management (Jan. 2022 - May 2022)',
-      'CS 280 | Programming Language Concepts (Jan. 2022 - May 2022)',
-      'IT 202 | Internet Applications (Jan. 2022 - May 2022)',
-      'CS 241 | Foundations of Computer Science (Jan. 2022 - May 2022)',
-      'CS 114 H | Intro to Computer Science II (Sep. 2021 - Dec. 2021)',
-      'IS 350 | Computers, Society, and Ethics (Sep. 2021 - Dec. 2021)',
-      'MATH 333 | Probability and Statistics (Sep. 2020 - Dec. 2020)'
-    ];
+    this.coursework = [];
 
    }
+
+
+  ngOnInit(): void {
+    this.courseService.getCourses().subscribe(response => {
+      this.coursework = response.data['courses'];
+
+      this.coursework.forEach(function (c) {
+        let tempsd = Helper.convertDate(c.startdate);
+        console.log(tempsd);
+        c.startdate = tempsd;
+  
+        if(c.enddate != null){
+          let temped = Helper.convertDate(c.enddate);
+          c.enddate = temped;
+          console.log(c.enddate);
+        }
+      });
+    })
+    
+  }
 
   onClickProject(id: number){
     this.router.navigate(['/project'], {

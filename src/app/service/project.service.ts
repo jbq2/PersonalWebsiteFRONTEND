@@ -15,8 +15,8 @@ export class ProjectService {
   constructor(private http: HttpClient) {}
 
   
-  public getProjects(): Observable<CustomResponse> {
-    return this.http.get<CustomResponse>(`${this.url}/list`)
+  public getProjects(): Observable<CustomResponse<Project>> {
+    return this.http.get<CustomResponse<Project>>(`${this.url}/list`)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -24,8 +24,8 @@ export class ProjectService {
   }
 
 
-  public getProject(id: number): Observable<CustomResponse> {
-    return this.http.get<CustomResponse>(`${this.url}/get/${id}`)
+  public getProject(id: number): Observable<CustomResponse<Project>> {
+    return this.http.get<CustomResponse<Project>>(`${this.url}/get/${id}`)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -33,8 +33,8 @@ export class ProjectService {
   }
 
 
-  public save(project: Project): Observable<CustomResponse> {
-    return this.http.post<CustomResponse>(`${this.url}/save`, project)
+  public save(project: Project): Observable<CustomResponse<Project>> {
+    return this.http.post<CustomResponse<Project>>(`${this.url}/save`, project)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -42,8 +42,8 @@ export class ProjectService {
   }
 
 
-  public update(project: Project): Observable<CustomResponse> {
-    return this.http.post<CustomResponse>(`${this.url}/update`, project)
+  public update(project: Project): Observable<CustomResponse<Project>> {
+    return this.http.post<CustomResponse<Project>>(`${this.url}/update`, project)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -51,8 +51,8 @@ export class ProjectService {
   }
 
 
-  public delete(id: number): Observable<CustomResponse> {
-    return this.http.delete<CustomResponse>(`${this.url}/delete/${id}`)
+  public delete(id: number): Observable<CustomResponse<Project>> {
+    return this.http.delete<CustomResponse<Project>>(`${this.url}/delete/${id}`)
     .pipe(
       tap(console.log),
       catchError(this.handleError)

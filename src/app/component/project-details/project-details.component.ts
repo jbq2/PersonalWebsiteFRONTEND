@@ -1,8 +1,11 @@
+import { Course } from './../../interface/course';
+import { Constants } from './../../lib/constants';
 import { Helper } from './../../lib/helpers';
 import { Project } from './../../interface/project';
 import { ProjectService } from 'src/app/service/project.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CourseService } from 'src/app/service/course.service';
 
 @Component({
   selector: 'app-project-details',
@@ -11,9 +14,17 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  id!: number;
-  project!: Project;
-  constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
+  id: number;
+  project: Project;
+  course: Course;
+  constructor(private projectService: ProjectService, private courseService: CourseService,private route: ActivatedRoute) { 
+
+    this.id = -1;
+
+    this.project = Constants.emptyProject;
+
+    this.course = Constants.emptyCourse;
+  }
 
   ngOnInit(): void {
 
@@ -31,6 +42,11 @@ export class ProjectDetailsComponent implements OnInit {
         let temped = Helper.convertDate(this.project.enddate);
         this.project.enddate = temped;
       }
+
+      this.courseService.getCourse(this.project.course_id).subscribe(response =>{
+        //TODO change type of project column 'course' to INT, and assign it to the id of courses table
+        this.course = response.data['course'];
+      });
     });
   }
 

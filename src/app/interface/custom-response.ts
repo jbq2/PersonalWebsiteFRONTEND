@@ -1,11 +1,11 @@
 import { Project } from "./project";
 
-export interface CustomResponse{
+export interface CustomResponse<T>{
     timeStamp: Date;
     statusCode: number;
     status: string;
     reason: string;
     message: string;
     developerMessage: string;
-    data: { projects: Project[], project: Project }
+    data: any;
 }

@@ -1,18 +1,7 @@
+import { Constants } from './constants';
+import { Course } from './../interface/course';
+import { Project } from 'src/app/interface/project';
 export class Helper{
-    static monthMap: Map<any, any> = new Map<number, string>([
-        [0, 'January'],
-        [1, 'February'],
-        [2, 'March'],
-        [3, 'April'],
-        [4, 'May'],
-        [5, 'June'],
-        [6, 'July'],
-        [7, 'August'],
-        [8, 'September'],
-        [9, 'October'],
-        [10,'November'],
-        [11,'December']
-      ]);
 
     static convertDate(inputDate: string): string{
         //converts from YYYY-MM-DD to Date Month, Year
@@ -21,7 +10,7 @@ export class Helper{
         let date: string | number = '';
 
         year = inputDate.slice(0,4);
-        month = this.monthMap.get(+inputDate.slice(5,7));
+        month = Constants.monthMap.get(+inputDate.slice(5,7) - 1);
         date = +inputDate.slice(8);
 
         return `${date} ${month}, ${year}`;
