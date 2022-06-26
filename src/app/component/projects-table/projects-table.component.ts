@@ -12,6 +12,7 @@ import { Helper } from 'src/app/lib/helpers';
 export class ProjectsTableComponent implements OnInit {
 
   projects: Project[];
+
   constructor(private projectService: ProjectService, private router: Router) {
     this.projects = [];
   }
@@ -21,17 +22,17 @@ export class ProjectsTableComponent implements OnInit {
     this.projectService.getProjects().subscribe(response => {
       this.projects = response.data['objects'];
 
-      this.projects.forEach(function (p) {
-        let tempsd = Helper.convertDate(p.startdate);
-        console.log(tempsd);
-        p.startdate = tempsd;
+      // this.projects.forEach(function (p) {
+      //   let tempsd = Helper.convertDate(p.startdate);
+      //   console.log(tempsd);
+      //   p.startdate = tempsd;
   
-        if(p.enddate != null){
-          let temped = Helper.convertDate(p.enddate);
-          p.enddate = temped;
-          console.log(p.enddate);
-        }
-      });
+      //   if(p.enddate != null){
+      //     let temped = Helper.convertDate(p.enddate);
+      //     p.enddate = temped;
+      //     console.log(p.enddate);
+      //   }
+      // });
     });
 
   }

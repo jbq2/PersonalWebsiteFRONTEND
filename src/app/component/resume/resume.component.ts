@@ -4,6 +4,7 @@ import { ProjectService } from './../../service/project.service';
 import { Project } from './../../interface/project';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Helper } from 'src/app/lib/helpers';
 
 @Component({
   selector: 'app-resume',
@@ -61,7 +62,20 @@ export class ResumeComponent implements OnInit{
   ngOnInit(): void {
     this.courseService.getCourses().subscribe(response => {
       this.coursework = response.data['objects'];
+
+      this.coursework.forEach(function (c) {
+        let tempsd = Helper.convertDate(c.startdate);
+        console.log(tempsd);
+        c.startdate = tempsd;
+  
+        if(c.enddate != null){
+          let temped = Helper.convertDate(c.enddate);
+          c.enddate = temped;
+          console.log(c.enddate);
+        }
+      });
     })
+    
   }
 
   onClickProject(id: number){
