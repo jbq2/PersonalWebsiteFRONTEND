@@ -1,3 +1,4 @@
+import { Constants } from './../../lib/constants';
 import { Helper } from './../../lib/helpers';
 import { Project } from './../../interface/project';
 import { ProjectService } from 'src/app/service/project.service';
@@ -12,8 +13,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class ProjectDetailsComponent implements OnInit {
 
   id!: number;
-  project!: Project;
-  constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
+  project: Project;
+  constructor(private projectService: ProjectService, private route: ActivatedRoute) { 
+
+    this.id = -1;
+
+    this.project = Constants.emptyProject;
+  }
 
   ngOnInit(): void {
 
@@ -22,7 +28,7 @@ export class ProjectDetailsComponent implements OnInit {
     });
 
     this.projectService.getProject(this.id).subscribe(response => {
-      this.project = response.data['object'];
+      this.project = response.data['project'];
 
       let tempsd = Helper.convertDate(this.project.startdate);
       this.project.startdate = tempsd;
