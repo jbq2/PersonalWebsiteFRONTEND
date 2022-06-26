@@ -7,5 +7,5 @@ export interface CustomResponse<T>{
     reason: string;
     message: string;
     developerMessage: string;
-    data: { objects: T[], object: T }
+    data: any;
 }
