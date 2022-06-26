@@ -48,19 +48,7 @@
 
 
 <h1 class="text-center">Projects</h1>
-<div class="container projects d-flex flex-column">
-
-  <div *ngFor="let p of projects" class="card" id="full-card">
-    <div class="card-body">
-      <h4 class="card-title">{{ p.name }}</h4>
-      <h5 class="card-subtitle mb-2 text-muted">Project</h5>
-      <p>{{ p.description }}...</p>
-      <a (click)="onClickProject(p.id)" class="card-link">Full Description</a>
-      <a *ngIf="p.url != null" href="{{ p.url }}" class="card-link">GitHub Link</a>
-    </div>
-  </div>
-
-</div>
+<app-projects-table></app-projects-table>
 
 
 <h1 class="text-center">Achievements and Awards</h1>

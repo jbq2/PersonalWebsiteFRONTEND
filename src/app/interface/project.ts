@@ -6,4 +6,5 @@ export interface Project{
     startdate: string;
     enddate: string;
     url: string;
+    servedurl: string;
 }

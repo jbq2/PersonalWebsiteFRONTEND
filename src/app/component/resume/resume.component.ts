@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.css']
 })
-export class ResumeComponent implements OnInit {
+export class ResumeComponent {
 
   projects: Project[];
   experiences: Map<any, any>;//key: string, value: string[]
@@ -62,26 +62,6 @@ export class ResumeComponent implements OnInit {
     ];
 
    }
-
-  ngOnInit(): void {
-    this.projectService.getProjects().subscribe(response => {
-      this.projects = response.data["projects"];
-
-      let chars = [];
-      console.log(this.projects.length);
-      for(let i = 0; i < this.projects.length; i++){
-        let shortDesc = '';
-        chars = [...this.projects[i].description];
-  
-        for(let j = 0; j < chars.length && chars[j] != '.'; j++){
-          shortDesc += chars[j];
-        }
-  
-        console.log(shortDesc);
-        this.projects[i].description = shortDesc;
-      }
-    })
-  }
 
   onClickProject(id: number){
     this.router.navigate(['/project'], {
