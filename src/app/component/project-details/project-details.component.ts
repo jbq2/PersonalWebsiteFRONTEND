@@ -22,7 +22,7 @@ export class ProjectDetailsComponent implements OnInit {
     });
 
     this.projectService.getProject(this.id).subscribe(response => {
-      this.project = response.data['project'];
+      this.project = response.data['object'];
 
       let tempsd = Helper.convertDate(this.project.startdate);
       this.project.startdate = tempsd;

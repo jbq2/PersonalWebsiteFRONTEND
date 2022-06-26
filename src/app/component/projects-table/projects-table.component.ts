@@ -19,7 +19,7 @@ export class ProjectsTableComponent implements OnInit {
   ngOnInit(): void {
 
     this.projectService.getProjects().subscribe(response => {
-      this.projects = response.data['projects'];
+      this.projects = response.data['objects'];
 
       this.projects.forEach(function (p) {
         let tempsd = Helper.convertDate(p.startdate);
