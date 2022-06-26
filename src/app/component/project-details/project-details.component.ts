@@ -43,7 +43,7 @@ export class ProjectDetailsComponent implements OnInit {
         this.project.enddate = temped;
       }
 
-      this.courseService.getCourse(this.project.course).subscribe(response =>{
+      this.courseService.getCourse(this.project.course_id).subscribe(response =>{
         //TODO change type of project column 'course' to INT, and assign it to the id of courses table
         this.course = response.data['course'];
       });

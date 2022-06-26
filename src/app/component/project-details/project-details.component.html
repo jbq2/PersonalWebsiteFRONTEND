@@ -10,7 +10,7 @@
 
     <div class="text-center w-50">
         <h2>Course</h2>
-        <p *ngIf="project.course != null; else noCourse">{{ course.title }}</p>
+        <p *ngIf="project.course_id != null; else noCourse">{{ course.title }}</p>
         <ng-template #noCourse>
             <p><i>There is no course affiliated with this project.</i></p>
         </ng-template>

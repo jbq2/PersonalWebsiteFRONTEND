@@ -21,7 +21,7 @@ export class Constants{
     id: -1,
     name: '',
     description: '',
-    course: '',
+    course_id: -1,
     startdate: '',
     enddate: '',
     url: '',

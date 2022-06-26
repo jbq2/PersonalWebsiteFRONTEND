@@ -2,7 +2,7 @@ export interface Project{
     id: number;
     name: string;
     description: string;
-    course: string;
+    course_id: number;
     startdate: string;
     enddate: string;
     url: string;
