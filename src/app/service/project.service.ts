@@ -52,7 +52,7 @@ export class ProjectService {
 
 
   public delete(id: number): Observable<CustomResponse<Project>> {
-    return this.http.delete<CustomResponse<Project>>(`${this.url}/secureou/delete/${id}`)
+    return this.http.delete<CustomResponse<Project>>(`${this.url}/secure/delete/${id}`)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
