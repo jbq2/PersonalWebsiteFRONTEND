@@ -32,7 +32,7 @@ export class CourseService {
 
 
   public save(course: Course): Observable<CustomResponse<Course>> {
-    return this.http.post<CustomResponse<Course>>(`${this.url}/secure/save`, course)
+    return this.http.post<CustomResponse<Course>>(`${this.url}/save`, course)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -41,7 +41,7 @@ export class CourseService {
 
 
   public update(course: Course): Observable<CustomResponse<Course>> {
-    return this.http.post<CustomResponse<Course>>(`${this.url}/secure/update`, course)
+    return this.http.post<CustomResponse<Course>>(`${this.url}/update`, course)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -50,7 +50,7 @@ export class CourseService {
 
 
   public delete(id: number): Observable<CustomResponse<Course>> {
-    return this.http.delete<CustomResponse<Course>>(`${this.url}/secure/delete/${id}`)
+    return this.http.delete<CustomResponse<Course>>(`${this.url}/delete/${id}`)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
