@@ -34,7 +34,7 @@ export class ProjectService {
 
 
   public save(project: Project): Observable<CustomResponse<Project>> {
-    return this.http.post<CustomResponse<Project>>(`${this.url}/secure/save`, project)
+    return this.http.post<CustomResponse<Project>>(`${this.url}/save`, project)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -43,7 +43,7 @@ export class ProjectService {
 
 
   public update(project: Project): Observable<CustomResponse<Project>> {
-    return this.http.post<CustomResponse<Project>>(`${this.url}/secure/update`, project)
+    return this.http.post<CustomResponse<Project>>(`${this.url}/update`, project)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
@@ -52,7 +52,7 @@ export class ProjectService {
 
 
   public delete(id: number): Observable<CustomResponse<Project>> {
-    return this.http.delete<CustomResponse<Project>>(`${this.url}/secure/delete/${id}`)
+    return this.http.delete<CustomResponse<Project>>(`${this.url}/delete/${id}`)
     .pipe(
       tap(console.log),
       catchError(this.handleError)
