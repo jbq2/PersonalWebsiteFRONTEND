@@ -13,6 +13,7 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { AboutMeComponent } from './component/about-me/about-me.component';
 import { ResumeComponent } from './component/resume/resume.component';
 import { ProjectsTableComponent } from './component/projects-table/projects-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProjectsTableComponent } from './component/projects-table/projects-tabl
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
