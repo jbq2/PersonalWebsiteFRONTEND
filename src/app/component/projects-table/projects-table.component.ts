@@ -24,13 +24,11 @@ export class ProjectsTableComponent implements OnInit {
 
       this.projects.forEach(function (p) {
         let tempsd = Helper.convertDate(p.startdate);
-        console.log(tempsd);
         p.startdate = tempsd;
   
         if(p.enddate != null){
           let temped = Helper.convertDate(p.enddate);
           p.enddate = temped;
-          console.log(p.enddate);
         }
       });
     });

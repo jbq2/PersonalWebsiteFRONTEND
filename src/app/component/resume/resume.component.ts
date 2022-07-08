@@ -13,45 +13,40 @@ import { Helper } from 'src/app/lib/helpers';
 })
 export class ResumeComponent implements OnInit{
 
-  projects: Project[];
-  experiences: Map<any, any>;//key: string, value: string[]
+  experiences: Map<any, any>;
   achievements: Map<any, any>;
   coursework: Course[];
   constructor(private projectService: ProjectService, private courseService: CourseService, private router: Router) {
-
-    this.projects = [];
     
-    this.experiences = new Map<string, string[]>([
-      ['Internet Application Developer | Kinexis Consulting', [
-        'Jun. 2022 - Present',
-        'Utilizing WordPress to develop an appointment scheduler',
-        'Assessing several plugins and platforms for the app',
-        'Meeting with higher ups to provide ideas'
-      ]],
-      ['STEM Instructor | BuiltByMe Learning Institution', [
-        'Oct. 2021 - Present',
-        'Tutor programming in Scratch and Python',
-        'Explain fundamental programming concepts',
-        'Assist in growth from programming in Scratch to Python'
-      ]],
-      ['IT Department Intern | New Jersey Urology', [
-        'Jun. 2020 - Sep. 2020',
-        'Acquired software trouble shooting skills',
-        'Assisted in PC hardware and EHR software upgrades',
-        'Helped in upgrading 1000+ devices across NJU branches',
-        'Completed upgrade project 2 weeks ahead of schedule'
-      ]]
+    this.experiences = new Map<string, string[]>();
+    this.experiences.set('Internet Application Developer | Kinexis Consulting', [
+      'Jun. 2022 - Present',
+      'Utilizing WordPress to develop an appointment scheduler',
+      'Assessing several plugins and platforms for the app',
+      'Meeting with higher ups to provide ideas'
+    ]);
+    this.experiences.set('STEM Instructor | BuiltByMe Learning Institution', [
+      'Oct. 2021 - Present',
+      'Tutor programming in Scratch and Python',
+      'Explain fundamental programming concepts',
+      'Assist in growth from programming in Scratch to Python'
+    ]);
+    this.experiences.set('IT Department Intern | New Jersey Urology', [
+      'Jun. 2020 - Sep. 2020',
+      'Acquired software trouble shooting skills',
+      'Assisted in PC hardware and EHR software upgrades',
+      'Helped in upgrading 1000+ devices across NJU branches',
+      'Completed upgrade project 2 weeks ahead of schedule'
     ]);
 
-    this.achievements = new Map<string, string[]>([
-      [`Dean's Scholar for the YWCC`, [
-        'Sep. 2020 - Present',
-        `Admitted to Dean's List for the Ying Wu College of Computing (YWCC) upon admission to NJIT.`
-      ]],
-      [`NJIT Academic Excellence Scholarship`, [
-        'Jun. 2020',
-        'Acquired upon admission to NJIT for maintaining honors status throughout my high school career.'
-      ]]
+    this.achievements = new Map<string, string[]>();
+    this.achievements.set(`Dean's Scholar for the YWCC`, [
+      'Sep. 2020 - Present',
+      `Admitted to Dean's List for the Ying Wu College of Computing (YWCC) upon admission to NJIT.`
+    ]);
+    this.achievements.set(`NJIT Academic Excellence Scholarship`, [
+      'Jun. 2020',
+      'Acquired upon admission to NJIT for maintaining honors status throughout my high school career.'
     ]);
 
     this.coursework = [];
@@ -60,18 +55,17 @@ export class ResumeComponent implements OnInit{
 
 
   ngOnInit(): void {
+
     this.courseService.getCourses().subscribe(response => {
       this.coursework = response.data['courses'];
 
       this.coursework.forEach(function (c) {
         let tempsd = Helper.convertDate(c.startdate);
-        console.log(tempsd);
         c.startdate = tempsd;
   
         if(c.enddate != null){
           let temped = Helper.convertDate(c.enddate);
           c.enddate = temped;
-          console.log(c.enddate);
         }
       });
     })
