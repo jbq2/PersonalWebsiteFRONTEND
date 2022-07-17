@@ -9,7 +9,7 @@ import { CustomResponse } from '../interface/custom-response';
 })
 export class CourseService {
 
-  private readonly url: string = 'http://localhost:8080/courses'
+  private readonly url: string = 'http://jbq2-portfolio-backend.herokuapp.com/courses';
 
   constructor(private http: HttpClient) { }
 

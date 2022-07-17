@@ -10,7 +10,7 @@ import { CustomResponse } from '../interface/custom-response';
 
 export class ProjectService {
 
-  private readonly url: string = 'http://localhost:8080/projects'; // http://localhost:8080/projects
+  private readonly url: string = 'http://jbq2-portfolio-backend.herokuapp.com/projects';
 
   constructor(private http: HttpClient) {}
 
