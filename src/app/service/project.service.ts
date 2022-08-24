@@ -5,7 +5,7 @@ import { Project } from './../interface/project';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular'
 
 
 @Injectable({
@@ -16,7 +16,7 @@ export class ProjectService {
 
   private readonly url: string = 'https://jbq2-portfolio-backend.herokuapp.com/api/projects';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private loadingController: LoadingController) {}
 
 
   // public gp(): Observable<AppState<CustomResponse<Project>>>{
