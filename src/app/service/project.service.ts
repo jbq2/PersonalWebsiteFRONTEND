@@ -16,7 +16,7 @@ export class ProjectService {
 
   private readonly url: string = 'https://jbq2-portfolio-backend.herokuapp.com/api/projects';
 
-  constructor(private http: HttpClient, private loadingController: LoadingController) {}
+  constructor(private http: HttpClient) {}
 
 
   // public gp(): Observable<AppState<CustomResponse<Project>>>{
