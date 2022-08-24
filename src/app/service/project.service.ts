@@ -1,11 +1,12 @@
 import { CustomResponse } from './../interface/custom-response';
-import { DataState } from './../enum/data-state.enum';
-import { AppState } from './../interface/app-state';
+// import { DataState } from './../enum/data-state.enum';
+// import { AppState } from './../interface/app-state';
 import { Project } from './../interface/project';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { NONE_TYPE } from '@angular/compiler';
+import { LoadingController } from '@ionic/angular';
+
 
 @Injectable({
   providedIn: 'root'
