@@ -16,7 +16,7 @@
         <tbody>
           <tr *ngFor="let p of projects$ | async">
             <td>{{ p.id }}</td>
-            <td>{{ p.name }}</td>
+            <td><a (click)="onClickProject(p.id)"><strong>{{ p.name }}</strong></a></td>
             <td *ngIf="p.enddate != null; else noEndDate">{{ p.startdate }} to {{ p.enddate }}</td>
             <ng-template #noEndDate>
                 <td><i>Incomplete</i></td>

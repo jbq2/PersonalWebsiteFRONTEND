@@ -16,7 +16,7 @@ export class TestObservablesComponent implements OnInit {
   public isLoading$: Observable<Boolean>;
   public projects$: Observable<Project[]>;
 
-  constructor(private projectService: ProjectService) { 
+  constructor(private projectService: ProjectService, private router: Router) { 
     this.isLoading$ = of(false);
 
     console.log('isLoading: False (Initial)');
@@ -53,5 +53,11 @@ export class TestObservablesComponent implements OnInit {
   }
   //TODO: implement observable style of presenting data with courses here as well
   //TODO: fully implement this for ProjectsTableComponent and ResumeComponent (loading courses)
+
+  onClickProject(id: number){
+    this.router.navigate(['/project'], {
+      queryParams: { 'id': id }
+    });
+  }
 
 }
