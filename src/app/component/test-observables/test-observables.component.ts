@@ -51,5 +51,7 @@ export class TestObservablesComponent implements OnInit {
       });
     });
   }
+  //TODO: implement observable style of presenting data with courses here as well
+  //TODO: fully implement this for ProjectsTableComponent and ResumeComponent (loading courses)
 
 }
