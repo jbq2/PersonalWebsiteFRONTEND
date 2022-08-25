@@ -5,6 +5,7 @@ import { Project } from './../../interface/project';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Helper } from 'src/app/lib/helpers';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-resume',
@@ -15,9 +16,14 @@ export class ResumeComponent implements OnInit{
 
   experiences: Map<any, any>;
   achievements: Map<any, any>;
-  coursework: Course[];
+  coursework$: Observable<Course[]>;
+  isLoading$: Observable<Boolean>;
+
   constructor(private projectService: ProjectService, private courseService: CourseService, private router: Router) {
-    
+
+    this.coursework$ = of([]);
+    this.isLoading$ = of(false);
+
     this.experiences = new Map<string, string[]>();
     this.experiences.set('Internet Application Developer | Kinexis Consulting', [
       'Jun. 2022 - Present',
@@ -49,18 +55,17 @@ export class ResumeComponent implements OnInit{
       'Acquired upon admission to NJIT for maintaining honors status throughout my high school career.'
     ]);
 
-    this.coursework = [];
-
    }
 
 
   ngOnInit(): void {
+    this.isLoading$ = of(true);
 
     this.courseService.getCourses().subscribe(response => {
       
-      this.coursework = response.data['courses'];
+      let data: Course[] = response.data['courses'];
 
-      this.coursework.forEach(function (c) {
+      data.forEach(function (c) {
         let tempsd = Helper.convertDate(c.startdate);
         c.startdate = tempsd;
   
@@ -69,6 +74,9 @@ export class ResumeComponent implements OnInit{
           c.enddate = temped;
         }
       });
+
+      this.isLoading$ = of(false);
+      this.coursework$ = of(data);
     })
     
   }

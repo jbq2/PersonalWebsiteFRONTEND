@@ -10,6 +10,7 @@ import { Observable, of } from 'rxjs';
   templateUrl: './projects-table.component.html',
   styleUrls: ['./projects-table.component.css']
 })
+
 export class ProjectsTableComponent implements OnInit {
 
   public isLoading$: Observable<Boolean>;
