@@ -14,7 +14,7 @@ import { Helper } from 'src/app/lib/helpers';
 export class TestObservablesComponent implements OnInit {
 
   public isLoading$: Observable<Boolean>;
-  public projects$: Observable<Project[]>
+  public projects$: Observable<Project[]>;
 
   constructor(private projectService: ProjectService) { 
     this.isLoading$ = of(false);

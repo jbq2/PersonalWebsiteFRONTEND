@@ -1,8 +1,9 @@
-<div class="d-flex justify-content-center" *ngIf="isLoading$ | async">
+<div class="d-flex justify-content-center" *ngIf="(isLoading$ | async); else displayData">
   <img src="https://miro.medium.com/max/1400/0*ptDX0HfJCYpo9Pcs.gif" style="width:250px; height:auto" alt="">
 </div>
 
-<div id="projectsListDiv" class="d-flex justify-content-center" *ngIf="(projects$ | async); else noData">
+<ng-template #displayData>
+  <div id="projectsListDiv" class="d-flex justify-content-center" *ngIf="(projects$ | async); else noData">
     <table class="table table-hover table-bordered">
         <thead class="table-dark">
           <tr>
@@ -27,7 +28,8 @@
           </tr>
         </tbody>
     </table>
-</div>
+  </div>
+</ng-template>
 
 <ng-template #noData>
   <div>
