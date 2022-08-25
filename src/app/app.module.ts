@@ -13,6 +13,7 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { AboutMeComponent } from './component/about-me/about-me.component';
 import { ResumeComponent } from './component/resume/resume.component';
 import { ProjectsTableComponent } from './component/projects-table/projects-table.component';
+import { TestObservablesComponent } from './component/test-observables/test-observables.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProjectsTableComponent } from './component/projects-table/projects-tabl
     AboutMeComponent,
     ResumeComponent,
     ProjectsTableComponent,
+    TestObservablesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center" *ngIf="isLoading$ | async">
+  <img src="https://miro.medium.com/max/1400/0*ptDX0HfJCYpo9Pcs.gif" style="width:250px; height:auto" alt="">
+</div>
+
+<div id="projectsListDiv" class="d-flex justify-content-center" *ngIf="(projects$ | async); else noData">
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Start to End</th>
+            <th scope="col">GitHub Repo Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of projects$ | async">
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td *ngIf="p.enddate != null; else noEndDate">{{ p.startdate }} to {{ p.enddate }}</td>
+            <ng-template #noEndDate>
+                <td><i>Incomplete</i></td>
+            </ng-template>
+            <td *ngIf="p.url != null; else nourl"><a href="{{ p.url }}">{{ p.url }}</a></td>
+            <ng-template #nourl>
+                <td><i>No URL</i></td>
+            </ng-template>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #noData>
+  <div>
+    No Data Right Now :(
+  </div>
+</ng-template>

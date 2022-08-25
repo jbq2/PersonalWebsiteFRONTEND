@@ -57,6 +57,7 @@ export class ResumeComponent implements OnInit{
   ngOnInit(): void {
 
     this.courseService.getCourses().subscribe(response => {
+      
       this.coursework = response.data['courses'];
 
       this.coursework.forEach(function (c) {

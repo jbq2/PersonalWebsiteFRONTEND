@@ -3,6 +3,7 @@ import { ProjectService } from '../../service/project.service';
 import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/interface/project';
 import { Helper } from 'src/app/lib/helpers';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects-table',
@@ -11,7 +12,7 @@ import { Helper } from 'src/app/lib/helpers';
 })
 export class ProjectsTableComponent implements OnInit {
 
-  projects: Project[];
+  public projects: Project[];
 
   constructor(private projectService: ProjectService, private router: Router) {
     this.projects = [];
@@ -20,6 +21,7 @@ export class ProjectsTableComponent implements OnInit {
   ngOnInit(): void {
 
     this.projectService.getProjects().subscribe(response => {
+      
       this.projects = response.data['projects'];
 
       this.projects.forEach(function (p) {

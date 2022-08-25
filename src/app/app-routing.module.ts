@@ -1,3 +1,4 @@
+import { TestObservablesComponent } from './component/test-observables/test-observables.component';
 import { ResumeComponent } from './component/resume/resume.component';
 import { AboutMeComponent } from './component/about-me/about-me.component';
 import { ProjectDetailsComponent } from './component/project-details/project-details.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'project', component: ProjectDetailsComponent },
   { path: 'aboutme', component: AboutMeComponent },
   { path: 'resume', component: ResumeComponent },
+  { path: 'testobs', component: TestObservablesComponent },
   { path: '', component: HomeComponent}
 ];
 
