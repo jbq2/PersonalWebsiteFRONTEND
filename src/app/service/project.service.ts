@@ -5,7 +5,6 @@ import { Project } from './../interface/project';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
-import { LoadingController } from '@ionic/angular'
 
 
 @Injectable({
