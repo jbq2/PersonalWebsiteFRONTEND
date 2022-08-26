@@ -1,28 +1,32 @@
 import { Router } from '@angular/router';
-import { ProjectService } from '../../service/project.service';
+import { ProjectService } from 'src/app/service/project.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { CustomResponse } from 'src/app/interface/custom-response';
 import { Project } from 'src/app/interface/project';
 import { Helper } from 'src/app/lib/helpers';
-import { Observable, of } from 'rxjs';
 
 @Component({
-  selector: 'app-projects-table',
-  templateUrl: './projects-table.component.html',
-  styleUrls: ['./projects-table.component.css']
+  selector: 'app-test-observables',
+  templateUrl: './test-observables.component.html',
+  styleUrls: ['./test-observables.component.css']
 })
-
-export class ProjectsTableComponent implements OnInit {
+export class TestObservablesComponent implements OnInit {
 
   public isLoading$: Observable<Boolean>;
   public projects$: Observable<Project[]>;
 
   constructor(private projectService: ProjectService, private router: Router) { 
     this.isLoading$ = of(false);
+
+    console.log('isLoading: False (Initial)');
+    
     this.projects$ = of([]);
   }
 
   ngOnInit(): void {
-    this.isLoading$ = of(true);
+    this.isLoading$ = of(true)
+    console.log('isLoading: True (Loading)');
 
     this.projectService.getProjects()
     .subscribe(response => {
@@ -42,12 +46,13 @@ export class ProjectsTableComponent implements OnInit {
         });
   
         this.isLoading$ = of(false);
+        console.log('isLoading: False (Loaded)');
         this.projects$ = of(data);
       });
     });
   }
   //TODO: implement observable style of presenting data with courses here as well
-  //TODO: fully implement this for ResumeComponent (loading courses)
+  //TODO: fully implement this for ProjectsTableComponent and ResumeComponent (loading courses)
 
   onClickProject(id: number){
     this.router.navigate(['/project'], {
