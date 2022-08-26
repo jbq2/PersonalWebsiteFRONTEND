@@ -19,3 +19,8 @@ nav div ul li{
 a{
     cursor:pointer;
 }
+
+#loadingImg{
+    width:100px;
+    height:auto;
+}
