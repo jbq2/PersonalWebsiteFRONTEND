@@ -1,6 +1,4 @@
 import { Constants } from './constants';
-import { Course } from './../interface/course';
-import { Project } from 'src/app/interface/project';
 export class Helper{
 
     static convertDate(inputDate: string): string{
@@ -15,4 +13,5 @@ export class Helper{
 
         return `${date} ${month}, ${year}`;
     }
+
 }

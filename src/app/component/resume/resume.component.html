@@ -64,14 +64,20 @@
 
 
 <h1 class="text-center">Relevant Coursework</h1>
-<div class="container work-experience d-flex flex-column">
-  <div class="card" id="full-card">
-    <div class="card-body" style="padding-left:15%">
-      <h4 class="card-title">Coursework</h4>
-      <h5 class="card-subtitle mb-2 text-muted">New Jersey Institute of Technology</h5>
-      <ul>
-        <li *ngFor="let course of coursework">{{ course.code }} | {{ course.title }} ({{ course.startdate }} to {{ course.enddate }})</li>
-      </ul>
+<div class="d-flex justify-content-center" *ngIf="(isLoading$ | async); else displayData">
+  <img id="loadingImg" src="https://raw.githubusercontent.com/jbq2/GitHubImages/main/PersonalWebsiteImages/loadingdots.gif" alt="">
+</div>
+
+<ng-template #displayData>
+  <div class="container work-experience d-flex flex-column">
+    <div class="card" id="full-card">
+      <div class="card-body" style="padding-left:15%">
+        <h4 class="card-title">Coursework</h4>
+        <h5 class="card-subtitle mb-2 text-muted">New Jersey Institute of Technology</h5>
+        <ul>
+          <li *ngFor="let c of coursework$ | async">{{ c.code }} | {{ c.title }} ({{ c.startdate }} to {{ c.enddate }})</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>

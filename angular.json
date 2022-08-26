@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "PersonalWebsiteAngular"
+  "defaultProject": "PersonalWebsiteAngular",
+  "cli": {
+    "analytics": false
+  }
 }
