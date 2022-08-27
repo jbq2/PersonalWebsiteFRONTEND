@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent {
 
-  constructor() { }
+  constructor(private title: Title) {
+    this.title.setTitle('Joshua Quizon | Projects');
+  }
 }
