@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Helper } from 'src/app/lib/helpers';
 import { Observable, of } from 'rxjs';
+import { Title } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-resume',
@@ -19,8 +20,9 @@ export class ResumeComponent implements OnInit{
   coursework$: Observable<Course[]>;
   isLoading$: Observable<Boolean>;
 
-  constructor(private projectService: ProjectService, private courseService: CourseService, private router: Router) {
+  constructor(private projectService: ProjectService, private courseService: CourseService, private router: Router, private title: Title) {
 
+    this.title.setTitle('Joshua Quizon | Resume');
     this.coursework$ = of([]);
     this.isLoading$ = of(false);
 
