@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent{
 
-  background: string;
-  currently:string;
-  interests: string;
-  goals: string;
-  lastupdated: string;
-  constructor() { 
-    this.lastupdated = 'June 21, 2022';
+  public background: string;
+  public currently:string;
+  public interests: string;
+  public goals: string;
+  public lastupdated: string;
+  constructor(private title: Title) {
+    this.title.setTitle('Joshua Quizon | About Me') 
+    this.lastupdated = 'August 27, 2022';
     
     this.background = `Hello, my name is Joshua Quizon and welcome to the 'About Me' page of my personal
     blog/website/portfolio.  I am Filipino, born and raised, but moved to the United 

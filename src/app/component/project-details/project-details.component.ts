@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Course } from './../../interface/course';
 import { Constants } from './../../lib/constants';
 import { Helper } from './../../lib/helpers';
@@ -17,13 +18,13 @@ export class ProjectDetailsComponent implements OnInit {
   id: number;
   project: Project;
   course: Course;
-  constructor(private projectService: ProjectService, private courseService: CourseService,private route: ActivatedRoute) { 
+  constructor(private projectService: ProjectService, private courseService: CourseService,private route: ActivatedRoute, private title: Title) { 
 
+    this.title.setTitle('Joshua Quizon | Project Details');
     this.id = -1;
-
     this.project = Constants.emptyProject;
-
     this.course = Constants.emptyCourse;
+
   }
 
   ngOnInit(): void {
