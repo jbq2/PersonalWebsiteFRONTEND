@@ -26,24 +26,20 @@ export class ProjectsTableComponent implements OnInit {
 
     this.projectService.getProjects()
     .subscribe(response => {
+      let data: Project[] = response.data['projects'];
 
-      this.projectService.getProjects()
-      .subscribe(response => {
-        let data: Project[] = response.data['projects'];
+      data.forEach(function (p) {
+        let tempsd = Helper.convertDate(p.startdate);
+        p.startdate = tempsd;
   
-        data.forEach(function (p) {
-          let tempsd = Helper.convertDate(p.startdate);
-          p.startdate = tempsd;
-    
-          if(p.enddate != null){
-            let temped = Helper.convertDate(p.enddate);
-            p.enddate = temped;
-          }
-        });
-  
-        this.isLoading$ = of(false);
-        this.projects$ = of(data);
+        if(p.enddate != null){
+          let temped = Helper.convertDate(p.enddate);
+          p.enddate = temped;
+        }
       });
+
+      this.isLoading$ = of(false);
+      this.projects$ = of(data);
     });
   }
   //TODO: implement observable style of presenting data with courses here as well
